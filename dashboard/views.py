@@ -20,13 +20,13 @@ def dashboard_data(request):
 
         "role": user.role,
 
-        "treasury": 0,
+        "treasury": 1200000,
 
-        "active_wallets": 0,
+        "active_wallets": 24,
 
-        "pending_operations": 0,
+        "pending_operations": 7,
 
-        "archived_documents": 0,
+        "archived_documents": 18,
 
     }
 
