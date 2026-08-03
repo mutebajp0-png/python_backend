@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.http import JsonResponse
+from django.urls import include, path
 
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -16,6 +17,10 @@ def home(request):
 
 
 urlpatterns = [
+    path("api/", include("expenses.urls")),
+    path("api/", include("incomes.urls")),
+    path("api/", include("operations.urls")),
+
     path('', home),
 
     path('admin/', admin.site.urls),
@@ -44,4 +49,10 @@ urlpatterns = [
     'api/dashboard/',
     include('dashboard.urls')
 ),
+
+path(
+    "api/",
+    include("wallet.urls")
+),
+
 ]

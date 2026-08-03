@@ -11,14 +11,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9)yj=2!z=zry-i59x7vta=@a7d570upf_p(kuinw)!h1+!zmu*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    "127.0.0.1",
+    "ideagrouperdc.com",
+    "www.ideagrouperdc.com",
+    "195.110.34.149",
     "localhost",
-    "192.168.1.51",
-    "*"
+    "127.0.0.1",
 ]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://ideagrouperdc.com",
+    "https://www.ideagrouperdc.com",
+]
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 
 # Application definition
@@ -33,6 +44,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'accounts',
     'dashboard',
+    'wallet',
+    'expenses',
+    'incomes',
+    'operations',
     
 ]
 
@@ -119,6 +134,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
